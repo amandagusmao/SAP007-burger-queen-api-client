@@ -42,7 +42,7 @@ const TestAPI = () => {
    
   return (
     <div>
-      <Button title="entrar" onClick={buscarProdutos} />
+      <Button title="ENTRAR" onClick={buscarProdutos} />
       {loading ? (
         <p>Carregando...</p>
       ) : (
