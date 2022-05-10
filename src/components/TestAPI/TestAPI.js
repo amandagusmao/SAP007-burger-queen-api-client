@@ -13,7 +13,17 @@ const TestAPI = () => {
     setError(null);
 
     try {
-      const resultadoApi = await fetch('https://swapi.dev/api/people/1');
+      const resultadoApi = await fetch('https://lab-api-bq.herokuapp.com/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          accept: 'application/json'
+        },
+        body: JSON.stringify({
+          email: 'engamandagusmao@gmail.com',
+          password: 'bq123456',
+        }),
+      });
       const conteudo = await resultadoApi.json();
 
       setItem(conteudo);
@@ -24,16 +34,15 @@ const TestAPI = () => {
     }
   };
   
-  useEffect(() => {
-    console.log('amontei');
+  // useEffect(() => {
+  //   console.log('amontei');
 
-    buscarProdutos();
-  }, []);
+  //   buscarProdutos();
+  // }, []);
    
   return (
     <div>
-      <p>meu fi que isso</p>
-
+      <Button title="entrar" onClick={buscarProdutos} />
       {loading ? (
         <p>Carregando...</p>
       ) : (
@@ -45,10 +54,7 @@ const TestAPI = () => {
             </div>
           ) : (
             <div>
-              <p>{`Nome: ${item.name}`}</p>
-              <p>{`Peso: ${item.mass}`}</p>
-              <p>{`Secso: ${item.gender}`}</p>
-              <p>{`Altura: ${item.height}`}</p>
+              <p>{`Email: ${item.email}`}</p>
             </div>
           )}
         </div>

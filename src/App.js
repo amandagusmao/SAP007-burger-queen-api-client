@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './logo_bq.png';
 import './App.css';
 import Button from './components/Button/Button';
 import TestAPI from './components/TestAPI/TestAPI';
@@ -8,28 +8,35 @@ function App() {
     console.log('cliquei no login');
   }
 
-  const onSignupClick = () => {
-    console.log('cliquei no registro');
-  }
-
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          SERVICE SYSTEM
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-
-        <Button title="Login" onClick={onLoginClick} />
-        <Button title="Registrar-se" onClick={onSignupClick} />
+        <form className="Check-App">
+          <label>
+            <input type="checkbox"/>
+            Garçom
+          </label>
+          <label>
+            <input type="checkbox"/>
+            Cozinha
+          </label>
+        </form>
+        <div className="Input-App">
+          <div>
+            <input type="email" placeholder="exemplo@exemplo.com"/>
+            <i class="ph-envelope"></i>
+          </div>
+        </div>
+        <div className="Input-App">
+          <div>
+            <input type="password"/>
+            <i class="ph-lock-key"></i>
+          </div>
+        </div>
 
         <TestAPI />
       </header>
